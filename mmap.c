@@ -27,11 +27,13 @@ int main(int argc, char *argv[])
 	}
 	
 	printf("5 %d  failed\n",(int)strlen(buf));
+	printf("x %ld  failed\n",sizeof(*addr));
+	printf("x %ld  failed\n",sizeof(addr));
 	
-	memcpy(addr, buf, strlen(buf));
+	//memcpy(addr, buf, strlen(buf));
 	printf("6 failed\n");
 
-	munmap(addr, 1024);
+	//munmap(addr, 1024);
 	printf("7 failed\n");
 
 	close(fd);
