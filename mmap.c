@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	char buf[] = "hello world, hello world1234";
 	printf("1 failed\n");
-	int fd = open("a.txt", O_RDWR | O_CREAT, 0664);
+	int fd = open("a.txt", O_RDWR | O_CREAT, 00664);
 	printf("2 failed\n");
 	if(fd < 0)
 	{
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 	printf("3 failed\n");
-	char *addr = (char *)mmap(NULL, 1024, PROT_WRITE | PROT_READ, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+	char *addr = (char *)mmap(NULL, 1024, PROT_WRITE | PROT_READ, MAP_SHARED , fd, 0);
 	printf("4 failed\n");
 	if(addr == (char *)-1)
 	{
