@@ -18,14 +18,16 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 	printf("3 failed\n");
-	char *addr = (char *)mmap(NULL, 1024, PROT_WRITE | PROT_READ, MAP_SHARED, fd, 0);
+	char *addr = (char *)mmap(NULL, 1024, PROT_WRITE | PROT_READ, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 	printf("4 failed\n");
 	if(addr == (char *)-1)
 	{
 		printf("mmap failed\n");
 		return -1;
 	}
-	printf("5 %d  failed\n",strlen(buf));
+	
+	printf("5 %d  failed\n",(int)strlen(buf));
+	
 	memcpy(addr, buf, strlen(buf));
 	printf("6 failed\n");
 
