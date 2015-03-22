@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	char buf[] = "hello world, hello world1234";
 	printf("1 failed\n");
-	int fd = open("a.txt", O_RDWR | O_CREAT, 00664);
+	int fd = open("a.txt", O_RDWR, 00664);
 	printf("2 failed\n");
 	if(fd < 0)
 	{
